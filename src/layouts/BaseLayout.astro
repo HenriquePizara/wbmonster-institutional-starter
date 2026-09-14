@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import siteSettings from '../content/settings/site.json';
+import PwaInstallModal from '../components/PwaInstallModal.astro';
 
 interface Props {
   title?: string;
@@ -108,5 +109,6 @@ const schemaOrg = {
       <slot />
     </main>
     <slot name="footer" />
+    <PwaInstallModal appName={siteSettings.name} />
   </body>
 </html>
