@@ -80,8 +80,14 @@ const schemaOrg = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
   </head>
   <body class="bg-[#FBFBFA] text-[#18181B] antialiased min-h-screen flex flex-col selection:bg-stone-900 selection:text-stone-50">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-stone-900 focus:text-stone-50 focus:rounded-lg focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-stone-900 font-medium text-sm transition-all"
+    >
+      Pular para o conteúdo principal
+    </a>
     <slot name="header" />
-    <main class="flex-grow">
+    <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
       <slot />
     </main>
     <slot name="footer" />
