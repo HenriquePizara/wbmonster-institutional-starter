@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "audit": "lhci autorun",
+    "audit:prod": "lighthouse https://starter.wbmonster.com.br/ --output=html,json --output-path=.lighthouseci/production-audit --chrome-flags=\"--no-sandbox --headless --disable-gpu\" --quiet",
     "audit:slop": "node scripts/audit-slop.mjs",
     "test:e2e": "playwright-run tests/e2e/contact-form.spec.cjs",
     "hooks:install": "cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
