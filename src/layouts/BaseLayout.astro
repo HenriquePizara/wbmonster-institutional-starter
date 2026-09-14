@@ -78,6 +78,23 @@ const schemaOrg = {
 
     <!-- Schema.org JSON-LD para SEO do Google -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+      <!-- WbMonster Universal PWA Standard (ADR-0123) -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#18181B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content={siteSettings.name} />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.svg" />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('PWA SW Register Error:', err);
+          });
+        });
+      }
+    </script>
   </head>
   <body class="bg-[#FBFBFA] text-[#18181B] antialiased min-h-screen flex flex-col selection:bg-stone-900 selection:text-stone-50">
     <a

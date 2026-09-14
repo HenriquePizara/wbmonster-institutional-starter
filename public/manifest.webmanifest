@@ -1,0 +1,50 @@
+{
+  "name": "WbMonster Starter — Portal Institucional",
+  "short_name": "Starter",
+  "description": "Template canônico institucional com Astro 5, Tailwind CSS v4 e Dokku PaaS",
+  "start_url": "/",
+  "id": "/starter",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FBFBFA",
+  "theme_color": "#18181B",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Início",
+      "short_name": "Início",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/icons/icon-192.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
