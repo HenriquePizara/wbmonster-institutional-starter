@@ -55,6 +55,29 @@ npm run audit
 
 ---
 
+## 🎨 Paletas Visuais Corporativas (Temas Canônicos)
+
+O starter disponibiliza 5 esquemas visuais otimizados para diferentes verticais de mercado:
+
+| Tema | Segmento Alvo | Paleta Base | Acento Principal | Canvas Fundo |
+| :--- | :--- | :--- | :--- | :--- |
+| **`stone`** *(Padrão)* | Advocacia, Consultoria, Arquitetura | `stone` (Warm Gray) | `#C2410C` (Terracota) | `#FBFBFA` |
+| **`slate`** | Tecnologia, Software, Automação, Cloud | `slate` (Cool Gray) | `#2563EB` (Azul Royal) | `#F8FAFC` |
+| **`zinc`** | Indústria, Injeção Plástica, Metalurgia | `zinc` (Metallic) | `#D97706` (Âmbar Ind.) | `#FAFAFA` |
+| **`emerald`** | Saúde, Clínicas, Laboratórios, Agro | `zinc` + `emerald` | `#059669` (Esmeralda) | `#F9FAF8` |
+| **`navy`** | Finanças, Logística, Contabilidade | `slate` + `blue` | `#1D4ED8` (Azul Marinho) | `#F8FAFC` |
+
+### Gerar Novo Site via CLI (no `wbmonster-hub`):
+```bash
+# Modo com flags completas:
+npm run create-site -- --slug=empresa-abc --name="Empresa ABC" --theme=zinc --phone="(11) 98765-4321"
+
+# Modo interativo guiado:
+npm run create-site
+```
+
+---
+
 ## 📂 Estrutura de Diretórios
 
 ```
