@@ -1,0 +1,98 @@
+---
+const milestones = [
+  {
+    year: '2012',
+    title: 'Fundação e Primeiras Operações',
+    description: 'Início das atividades voltadas à engenharia de software e estruturação de bancos de dados corporativos na Grande São Paulo.'
+  },
+  {
+    year: '2017',
+    title: 'Certificação do SGQ ISO 9001',
+    description: 'Padronização formal de todos os processos operacionais e auditoria contínua de entrega técnica.'
+  },
+  {
+    year: '2021',
+    title: 'Expansão de Infraestrutura e PaaS Própria',
+    description: 'Desenvolvimento do ecossistema em contêineres e governança multicloud para clientes com alta criticidade de dados.'
+  },
+  {
+    year: '2026',
+    title: 'Governança Contínua & Inteligência Auditável',
+    description: 'Implantação do WbMonster Hub, monitoramento de cotas 24/7 e arquitetura editorial livre de vícios sintéticos.'
+  }
+];
+
+const coreValues = [
+  {
+    number: '01',
+    name: 'Rigor Técnico',
+    text: 'Decisões arquiteturais fundamentadas em dados, métricas e normas técnicas. Não seguimos modismos passageiros.'
+  },
+  {
+    number: '02',
+    name: 'Transparência de Escopo',
+    text: 'Cada contrato possui entregáveis explícitos. O cliente possui a posse irrestrita do código e dos seus dados.'
+  },
+  {
+    number: '03',
+    name: 'Estabilidade Operacional',
+    text: 'Foco incansável em disponibilidade, redundância ativa e tempo de resposta técnico abaixo de 30 minutos.'
+  },
+  {
+    number: '04',
+    name: 'Relacionamento Direto',
+    text: 'Comunicação conduzida por engenheiros e especialistas que conhecem o código e a operação física do negócio.'
+  }
+];
+---
+
+<section id="trajetoria" class="py-24 bg-[#F4F4F0] border-b border-stone-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="max-w-3xl mb-16">
+      <span class="text-xs font-semibold text-stone-700 uppercase tracking-widest">
+        Nossa Trajetória
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-semibold tracking-tight mt-3">
+        Construção Factual e Evolução Contínua
+      </h2>
+      <p class="text-stone-600 text-lg mt-4 leading-relaxed">
+        Não acreditamos em crescimento acelerado sem base sólida. Desde 2012, nossa reputação foi consolidada pela entrega pontual e suporte técnico presente.
+      </p>
+    </div>
+
+    <!-- Linha do Tempo de Marcos Históricos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+      {milestones.map((m) => (
+        <div class="border-t-2 border-stone-900 pt-6 space-y-2">
+          <span class="font-serif text-2xl font-bold text-stone-900">{m.year}</span>
+          <h3 class="font-bold text-stone-900 text-base leading-snug">{m.title}</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">{m.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bloco de Princípios Inegociáveis -->
+    <div class="bg-white border border-stone-200 rounded-2xl p-8 sm:p-12 shadow-xs">
+      <div class="max-w-2xl mb-10">
+        <span class="text-xs font-semibold text-stone-700 uppercase tracking-wider">
+          Diretrizes Éticas
+        </span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-2">
+          Quatro Compromissos Inegociáveis
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {coreValues.map((v) => (
+          <div class="space-y-2">
+            <span class="font-serif text-stone-700 font-bold text-lg">{v.number}.</span>
+            <h4 class="font-bold text-stone-900 text-base">{v.name}</h4>
+            <p class="text-stone-600 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

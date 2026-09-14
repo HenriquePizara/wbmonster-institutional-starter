@@ -43,6 +43,22 @@ const schemaOrg = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Preconnect e Fontes Assíncronas (Zero Bloqueio de FCP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
+      />
+    </noscript>
+
     <!-- Open Graph / Redes Sociais (WhatsApp, LinkedIn, Twitter) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />

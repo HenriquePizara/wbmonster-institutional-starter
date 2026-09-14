@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import HeroEditorial from '../components/HeroEditorial.astro';
 import TrustBar from '../components/TrustBar.astro';
+import CompanyStory from '../components/CompanyStory.astro';
 import ServicesScope from '../components/ServicesScope.astro';
+import SimulatorSection from '../components/SimulatorSection.astro';
+import LeadershipGrid from '../components/LeadershipGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import FaqSection from '../components/FaqSection.astro';
 import ContactSection from '../components/ContactSection.astro';
@@ -13,11 +16,31 @@ import Footer from '../components/Footer.astro';
 <BaseLayout>
   <Navbar slot="header" />
   
+  <!-- 01. Proposta de Valor & Autoridade -->
   <HeroEditorial />
+  
+  <!-- 02. Credibilidade & Métricas Fatuais -->
   <TrustBar />
+
+  <!-- 03. Trajetória Histórica, ISO 9001 & Valores -->
+  <CompanyStory />
+  
+  <!-- 04. Soluções Técnicas com Entregáveis Explícitos -->
   <ServicesScope />
+
+  <!-- 05. Simulador Interativo de Escopo (Astro Island React) -->
+  <SimulatorSection />
+
+  <!-- 06. Liderança, Titulações & Responsabilidade Técnica -->
+  <LeadershipGrid />
+
+  <!-- 07. Prova Social & Clientes Verificáveis -->
   <Testimonials />
+
+  <!-- 08. FAQ Técnico Estruturado para Rich Snippets -->
   <FaqSection />
+
+  <!-- 09. Canais Oficiais de Contato & Sede Física -->
   <ContactSection />
 
   <Footer slot="footer" />

@@ -1,0 +1,90 @@
+---
+const leaders = [
+  {
+    name: 'Diretoria Técnica & Arquitetura',
+    role: 'Sócio-Fundador • Especialista Chefe em Governança',
+    credentials: [
+      'Graduação em Engenharia de Software e Gestão de TI',
+      'Especialista em Microsserviços e Arquiteturas Concorrentes',
+      'Auditor Interno de Sistemas de Gestão da Qualidade (SGQ NBR ISO 9001)',
+      'Mais de 15 anos de atuação na liderança de projetos de alta criticidade'
+    ],
+    bio: 'Responsável direto pela direção de arte dos projetos, isolamento de contêineres e governança dos clusters Dokku na infraestrutura WbMonster.'
+  },
+  {
+    name: 'Coordenação de Operações & Compliance',
+    role: 'Sócia • Diretora de Relações Institucionais',
+    credentials: [
+      'Pós-Graduação em Gestão Estratégica de Negócios e Governança Corporativa',
+      'Certificação em LGPD e Segurança da Informação Aplicada',
+      'Autora de publicações sobre transformação e compliance empresarial',
+      'Gestão de parcerias e homologação de contratos com conselhos de classe'
+    ],
+    bio: 'Supervisiona os cronogramas de entrega, a conformidade jurídica com normas fiscais e a interlocução executiva com os clientes.'
+  }
+];
+---
+
+<section id="lideranca" class="py-24 bg-[#FBFBFA] border-b border-stone-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="max-w-3xl mb-16">
+      <span class="text-xs font-semibold text-stone-700 uppercase tracking-widest">
+        Liderança & Responsabilidade Técnica
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-semibold tracking-tight mt-3">
+        Quem Responde pela Nossa Engenharia
+      </h2>
+      <p class="text-stone-600 text-lg mt-4 leading-relaxed">
+        Não terceirizamos a inteligência dos seus projetos. Conheça as lideranças técnicas responsáveis pela condução e segurança de cada entrega.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      {leaders.map((leader, idx) => (
+        <div class="bg-white border border-stone-200/90 rounded-2xl p-8 sm:p-10 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6 pb-6 border-b border-stone-100">
+              <div class="w-14 h-14 rounded-full bg-stone-900 text-stone-50 font-serif font-bold text-xl flex items-center justify-center shrink-0">
+                0{idx + 1}
+              </div>
+              <div>
+                <h3 class="font-serif text-2xl font-bold text-stone-900 leading-snug">
+                  {leader.name}
+                </h3>
+                <p class="text-xs text-stone-600 font-medium mt-1">
+                  {leader.role}
+                </p>
+              </div>
+            </div>
+
+            <p class="text-stone-700 text-sm leading-relaxed mb-6">
+              {leader.bio}
+            </p>
+
+            <div class="space-y-2 pt-4 border-t border-stone-100">
+              <span class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-2">
+                Titulação e Credenciais Formais:
+              </span>
+              <ul class="space-y-1.5 text-xs text-stone-600">
+                {leader.credentials.map((cred) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-stone-400 font-bold">•</span>
+                    <span>{cred}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-stone-100">
+            <span class="text-xs text-stone-500 italic">
+              Disponibilidade para reuniões técnicas e alinhamentos de conselho.
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
