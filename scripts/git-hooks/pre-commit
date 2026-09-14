@@ -1,0 +1,16 @@
+#!/bin/sh
+# WbMonster Institutional Starter — Pre-Commit Guardrail (Anti-AI-Slop Linter)
+# Bloqueia commits com clichês de redação de IA ou vícios visuais (Default SaaS look)
+
+set -e
+
+echo ""
+echo "🛡️  [WbMonster Starter Guardrail] Auditando qualidade visual e textual (Anti-AI-Slop)..."
+
+# Executa auditoria exclusivamente nos arquivos staged (.astro, .tsx, .jsx, .md, .html)
+if [ -f "scripts/audit-slop.mjs" ]; then
+  node scripts/audit-slop.mjs --staged
+fi
+
+echo "✅ [WbMonster Starter Guardrail] Todas as verificações anti-slop passaram com sucesso!"
+echo ""

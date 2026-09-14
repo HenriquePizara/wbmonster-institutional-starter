@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run audit:slop && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "audit": "lhci autorun"
+    "audit": "lhci autorun",
+    "audit:slop": "node scripts/audit-slop.mjs",
+    "hooks:install": "cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
