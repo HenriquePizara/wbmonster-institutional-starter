@@ -1,0 +1,52 @@
+---
+import siteSettings from '../content/settings/site.json';
+---
+
+<header class="sticky top-0 z-40 bg-[#FBFBFA]/90 backdrop-blur-md border-b border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Logotipo / Nome com Serifa de Autoridade -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-lg bg-stone-900 text-white flex items-center justify-center font-serif font-bold text-lg">
+        W
+      </div>
+      <div>
+        <span class="font-serif font-bold text-lg sm:text-xl text-stone-900 tracking-tight block leading-none">
+          {siteSettings.name}
+        </span>
+        <span class="text-[10px] tracking-wider text-stone-500 uppercase font-medium mt-0.5 block">
+          Governança & Engenharia
+        </span>
+      </div>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+      <a href="#solucoes" class="hover:text-stone-950 transition-colors">Soluções</a>
+      <a href="#diferenciais" class="hover:text-stone-950 transition-colors">Estrutura</a>
+      <a href="#depoimentos" class="hover:text-stone-950 transition-colors">Cases Reais</a>
+      <a href="#faq" class="hover:text-stone-950 transition-colors">Dúvidas</a>
+      <a href="#contato" class="hover:text-stone-950 transition-colors">Contato</a>
+    </nav>
+
+    <!-- Botão de Ação Tátil -->
+    <div class="flex items-center gap-4">
+      <a
+        href={`https://wa.me/${siteSettings.whatsapp}?text=Olá,%20gostaria%20de%20conversar%20sobre%20uma%20solução%20para%20minha%20empresa.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-stone-900 text-stone-50 text-sm font-medium hover:bg-stone-800 transition-colors shadow-xs"
+      >
+        Atendimento Direto
+      </a>
+      
+      <!-- Link direto para o painel Keystatic CMS -->
+      <a
+        href="/keystatic"
+        class="text-xs px-2.5 py-1.5 rounded-md border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-stone-400 transition-colors"
+        title="Painel Administrativo Keystatic CMS"
+      >
+        CMS Admin
+      </a>
+    </div>
+  </div>
+</header>

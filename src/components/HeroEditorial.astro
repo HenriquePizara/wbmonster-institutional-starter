@@ -1,0 +1,76 @@
+---
+import heroData from '../content/home/hero.json';
+---
+
+<section class="relative py-20 sm:py-28 lg:py-32 border-b border-stone-200/70 bg-[#FBFBFA]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Coluna Principal de Texto (7 colunas - Layout Assimétrico de Revista) -->
+      <div class="lg:col-span-8 space-y-8">
+        <!-- Subtítulo Editorial Sóbrio (Sem pill badge com animate-ping) -->
+        <div class="inline-flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-700"></span>
+          <p class="text-xs sm:text-sm tracking-widest text-stone-600 uppercase font-medium">
+            {heroData.authorityBadge}
+          </p>
+        </div>
+
+        <!-- Título em Serifa Clássica Encorpada -->
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-900 tracking-tight leading-[1.12] font-semibold">
+          {heroData.titleMain}
+        </h1>
+
+        <!-- Subtítulo Concreto e Direto (Sem "Not X, but Y") -->
+        <p class="text-stone-600 text-lg sm:text-xl leading-relaxed max-w-2xl">
+          {heroData.subtitle}
+        </p>
+
+        <!-- Botões de Ação com Peso Tátil -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <a
+            href={heroData.primaryCtaLink}
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-stone-900 text-stone-50 font-medium text-base hover:bg-stone-800 transition-colors shadow-xs"
+          >
+            {heroData.primaryCtaText}
+          </a>
+          <a
+            href={heroData.secondaryCtaLink}
+            class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-stone-300 text-stone-800 font-medium text-base hover:bg-stone-100 transition-colors"
+          >
+            {heroData.secondaryCtaText}
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna de Apoio / Ficha de Autoridade Factual (5 colunas) -->
+      <div class="lg:col-span-4">
+        <div class="bg-stone-100/70 border border-stone-200/90 rounded-2xl p-6 sm:p-8 space-y-6">
+          <h2 class="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+            Compromissos Operacionais
+          </h2>
+          
+          <ul class="space-y-4 text-sm text-stone-700">
+            <li class="flex items-start gap-3">
+              <span class="text-stone-900 font-serif font-bold text-base">01.</span>
+              <span><strong>Disponibilidade SLA 99.9%:</strong> Infraestrutura isolada em contêineres com contingência ativa.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-stone-900 font-serif font-bold text-base">02.</span>
+              <span><strong>Zero Redundância & Tokens:</strong> Governança orientada a eficiência de recursos e custos previsíveis.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-stone-900 font-serif font-bold text-base">03.</span>
+              <span><strong>Código Auditável:</strong> Todo projeto com repositório próprio, documentação clara e sem dependência de plataformas proprietárias.</span>
+            </li>
+          </ul>
+
+          <div class="pt-4 border-t border-stone-200 text-xs text-stone-500">
+            Sede própria e atendimento técnico presencial na Região Metropolitana de São Paulo.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

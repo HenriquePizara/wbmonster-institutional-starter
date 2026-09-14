@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  
+  --color-canvas: #FBFBFA;
+  --color-canvas-subtle: #F4F4F0;
+  --color-canvas-muted: #EBEBE6;
+  
+  --color-border-subtle: #E2E2DC;
+  --color-border-strong: #D1D1C7;
+  
+  --color-ink: #18181B;
+  --color-ink-muted: #52525B;
+  --color-ink-faint: #71717A;
+  
+  --color-brand-primary: #0F172A;
+  --color-brand-accent: #C2410C;
+}
+
+:root {
+  color-scheme: light;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #18181B;
+  color: #FBFBFA;
+}

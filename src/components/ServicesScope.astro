@@ -1,0 +1,78 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Carrega os serviços dinamicamente do diretório de conteúdo
+const servicesDir = path.resolve('./src/content/services');
+let servicesList: Array<{ title: string; shortDescription: string; scopeItems: string[] }> = [];
+
+try {
+  if (fs.existsSync(servicesDir)) {
+    const files = fs.readdirSync(servicesDir).filter(f => f.endsWith('.json'));
+    servicesList = files.map(f => JSON.parse(fs.readFileSync(path.join(servicesDir, f), 'utf-8')));
+  }
+} catch (e) {
+  console.error('Erro ao ler serviços:', e);
+}
+---
+
+<section id="solucoes" class="py-24 bg-[#FBFBFA] border-b border-stone-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="max-w-3xl mb-16">
+      <span class="text-xs font-semibold text-stone-500 uppercase tracking-widest">
+        Escopo Técnico & Entregáveis
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-semibold tracking-tight mt-3">
+        Soluções Estruturadas com Metodologia Transparente
+      </h2>
+      <p class="text-stone-600 text-lg mt-4">
+        Cada projeto acompanha matriz de responsabilidades, arquitetura documentada e plano de contingência. Sem termos vagos ou entregáveis obscuros.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicesList.map((service, index) => (
+        <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-stone-400 transition-colors shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold text-stone-400 font-serif mb-4">
+              0{index + 1}
+            </div>
+            
+            <h3 class="font-serif text-2xl font-bold text-stone-900 tracking-tight capitalize">
+              {service.title.replace(/-/g, ' ')}
+            </h3>
+
+            <p class="text-stone-600 text-sm leading-relaxed mt-3">
+              {service.shortDescription}
+            </p>
+
+            <div class="mt-6 pt-6 border-t border-stone-100">
+              <h4 class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
+                Atividades Inclusas:
+              </h4>
+              <ul class="space-y-2 text-sm text-stone-700">
+                {service.scopeItems.map((item: string) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-stone-400 font-bold">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4">
+            <a
+              href="#contato"
+              class="inline-flex items-center text-sm font-medium text-stone-900 hover:text-stone-600 gap-1.5 transition-colors"
+            >
+              Solicitar diagnóstico deste escopo &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import siteSettings from '../content/settings/site.json';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#0F0F11] text-stone-400 py-12 border-t border-stone-800 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div>
+        <p class="font-serif font-bold text-base text-stone-200">
+          {siteSettings.name}
+        </p>
+        <p class="mt-1 text-stone-500">
+          {siteSettings.legalName} • CNPJ: {siteSettings.taxId}
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6 text-stone-500">
+        <a href="#solucoes" class="hover:text-stone-300 transition-colors">Soluções</a>
+        <a href="#depoimentos" class="hover:text-stone-300 transition-colors">Casos Reais</a>
+        <a href="#faq" class="hover:text-stone-300 transition-colors">FAQ</a>
+        <a href="/keystatic" class="hover:text-stone-300 transition-colors">CMS Admin</a>
+      </div>
+
+      <div class="text-stone-500 text-center md:text-right">
+        &copy; {currentYear} {siteSettings.name}. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+{
+  "title": "governanca-e-arquitetura",
+  "shortDescription": "Estruturação técnica completa de aplicações e governança de dados para empresas que precisam de estabilidade e segurança jurídica.",
+  "scopeItems": [
+    "Mapeamento e erradicação de vulnerabilidades arquiteturais",
+    "Isolamento em contêineres e deploy contínuo em PaaS própria",
+    "Monitoramento ativo de cotas, logs e integridade 24/7",
+    "Documentação técnica e conformidade com LGPD"
+  ]
+}

@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import siteSettings from '../content/settings/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = `${siteSettings.name} — Engenharia & Governança Digital`,
+  description = siteSettings.legalName + ' — Soluções corporativas, infraestrutura e governança digital.',
+  ogImage = '/og-image.png'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://wbmonster.com.br');
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": siteSettings.name,
+  "legalName": siteSettings.legalName,
+  "url": canonicalURL.toString(),
+  "telephone": siteSettings.phone,
+  "email": siteSettings.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteSettings.address,
+    "addressLocality": siteSettings.city,
+    "addressCountry": "BR"
+  },
+  "openingHours": siteSettings.workingHours
+};
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Redes Sociais (WhatsApp, LinkedIn, Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon & Identidade -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#18181B" />
+
+    <!-- Schema.org JSON-LD para SEO do Google -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  </head>
+  <body class="bg-[#FBFBFA] text-[#18181B] antialiased min-h-screen flex flex-col selection:bg-stone-900 selection:text-stone-50">
+    <slot name="header" />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>
