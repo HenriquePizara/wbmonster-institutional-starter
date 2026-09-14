@@ -57,6 +57,7 @@ import siteSettings from '../content/settings/site.json';
       <!-- Formulário de Contato -->
       <div class="lg:col-span-6">
         <form
+          id="contact-form"
           action={`https://wa.me/${siteSettings.whatsapp}`}
           method="GET"
           target="_blank"
@@ -81,18 +82,34 @@ import siteSettings from '../content/settings/site.json';
               />
             </div>
 
-            <div>
-              <label for="company" class="block text-xs font-medium text-stone-400 uppercase tracking-wider mb-2">
-                Empresa e Ramo
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                required
-                placeholder="Ex: Indústria Metalúrgica ABC"
-                class="w-full px-4 py-3 rounded-lg bg-stone-900 border border-stone-800 text-stone-100 placeholder-stone-600 focus:outline-none focus:border-stone-500 text-sm"
-              />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="company" class="block text-xs font-medium text-stone-400 uppercase tracking-wider mb-2">
+                  Empresa / Organização
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  required
+                  placeholder="Ex: Indústria ABC"
+                  class="w-full px-4 py-3 rounded-lg bg-stone-900 border border-stone-800 text-stone-100 placeholder-stone-600 focus:outline-none focus:border-stone-500 text-sm"
+                />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-xs font-medium text-stone-400 uppercase tracking-wider mb-2">
+                  Telefone / WhatsApp
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="Ex: (11) 98765-4321"
+                  class="w-full px-4 py-3 rounded-lg bg-stone-900 border border-stone-800 text-stone-100 placeholder-stone-600 focus:outline-none focus:border-stone-500 text-sm"
+                />
+              </div>
             </div>
 
             <div>
@@ -110,7 +127,10 @@ import siteSettings from '../content/settings/site.json';
             </div>
           </div>
 
+          <div id="form-status" class="text-xs text-stone-300 text-center hidden py-1"></div>
+
           <button
+            id="submit-btn"
             type="submit"
             class="w-full py-4 px-6 rounded-lg bg-stone-100 text-stone-950 font-bold text-sm hover:bg-white transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
           >
@@ -122,3 +142,70 @@ import siteSettings from '../content/settings/site.json';
     </div>
   </div>
 </section>
+
+<script is:inline define:vars={{ whatsappNumber: siteSettings.whatsapp }}>
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = String(formData.get('name') || '').trim();
+      const company = String(formData.get('company') || '').trim();
+      const phone = String(formData.get('phone') || '').trim();
+      const text = String(formData.get('text') || '').trim();
+
+      const payload = {
+        name,
+        company,
+        phone,
+        text,
+        source: 'starter.wbmonster.com.br'
+      };
+
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.innerHTML = 'Gravando mensagem...';
+      }
+
+      if (statusEl) {
+        statusEl.textContent = 'Enviando lead ao sistema...';
+        statusEl.classList.remove('hidden');
+      }
+
+      // 1. Post assíncrono para a API interna (BullMQ queue no host)
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Lead async proxy error, fallback to WhatsApp directly:', err);
+      }
+
+      if (statusEl) {
+        statusEl.textContent = 'Recebido com sucesso! Abrindo WhatsApp...';
+      }
+
+      // 2. Redireciona para WhatsApp com o contexto pré-preenchido
+      const msg = `Olá! Meu nome é ${name} (${company}).\nTelefone: ${phone}\n\nNecessidade: ${text}`;
+      const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+          submitBtn.innerHTML = 'Enviar Mensagem ao Atendimento &rarr;';
+        }
+        form.reset();
+        if (statusEl) {
+          statusEl.textContent = 'Mensagem enviada com sucesso.';
+          setTimeout(() => statusEl.classList.add('hidden'), 4000);
+        }
+      }, 600);
+    });
+  }
+</script>
