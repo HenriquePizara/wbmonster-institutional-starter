@@ -5,6 +5,8 @@ dist/
 .env.*
 .DS_Store
 .lhci/
+chrome/
+chrome-headless-shell/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

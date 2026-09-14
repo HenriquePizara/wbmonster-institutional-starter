@@ -22,19 +22,19 @@ import siteSettings from '../content/settings/site.json';
 
         <div class="space-y-4 text-sm text-stone-300">
           <div class="border-t border-stone-800 pt-4">
-            <span class="block text-xs uppercase text-stone-500 font-medium">Sede e Endereço Físico</span>
+            <span class="block text-xs uppercase text-stone-400 font-medium">Sede e Endereço Físico</span>
             <p class="mt-1 text-stone-200">{siteSettings.address}</p>
           </div>
 
           <div class="border-t border-stone-800 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <span class="block text-xs uppercase text-stone-500 font-medium">E-mail Corporativo</span>
+              <span class="block text-xs uppercase text-stone-400 font-medium">E-mail Corporativo</span>
               <a href={`mailto:${siteSettings.email}`} class="mt-1 text-stone-200 hover:text-white transition-colors block">
                 {siteSettings.email}
               </a>
             </div>
             <div>
-              <span class="block text-xs uppercase text-stone-500 font-medium">Telefone / WhatsApp</span>
+              <span class="block text-xs uppercase text-stone-400 font-medium">Telefone / WhatsApp</span>
               <a href={`https://wa.me/${siteSettings.whatsapp}`} class="mt-1 text-stone-200 hover:text-white transition-colors block">
                 {siteSettings.phone}
               </a>
@@ -42,12 +42,12 @@ import siteSettings from '../content/settings/site.json';
           </div>
 
           <div class="border-t border-stone-800 pt-4">
-            <span class="block text-xs uppercase text-stone-500 font-medium">Horário de Expediente</span>
+            <span class="block text-xs uppercase text-stone-400 font-medium">Horário de Expediente</span>
             <p class="mt-1 text-stone-200">{siteSettings.workingHours}</p>
           </div>
 
           <div class="border-t border-stone-800 pt-4">
-            <span class="block text-xs uppercase text-stone-500 font-medium">Registro e Conformidade</span>
+            <span class="block text-xs uppercase text-stone-400 font-medium">Registro e Conformidade</span>
             <p class="mt-1 text-stone-400 text-xs">{siteSettings.legalName} • CNPJ: {siteSettings.taxId}</p>
             <p class="text-stone-400 text-xs">{siteSettings.councilRegistration}</p>
           </div>
