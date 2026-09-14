@@ -1,3 +1,9 @@
+> **Repositório Oficial Dedicado (ADR-0075):** [HenriquePizara/wbmonster-institutional-starter](https://github.com/HenriquePizara/wbmonster-institutional-starter)  
+> **Status:** 🟢 Repositório Satélite Ativo & Isolado  
+> **Última Sincronização:** 2026-09-14T02:57:39.492Z  
+
+---
+
 # WbMonster Institutional Starter 🏛️
 
 Boilerplate canônico para sites institucionais, portais corporativos e landing pages de alta autoridade no ecossistema WbMonster.
