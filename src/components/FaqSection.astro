@@ -13,9 +13,27 @@ try {
 } catch (e) {
   console.error('Erro ao ler FAQ:', e);
 }
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqList.map(item => {
+    const cleanQuestion = item.question.replace(/-/g, ' ');
+    const questionText = cleanQuestion.endsWith('?') ? cleanQuestion : `${cleanQuestion}?`;
+    return {
+      "@type": "Question",
+      "name": questionText.charAt(0).toUpperCase() + questionText.slice(1),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    };
+  })
+};
 ---
 
 <section id="faq" class="py-24 bg-[#FBFBFA] border-b border-stone-200">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center mb-16">
