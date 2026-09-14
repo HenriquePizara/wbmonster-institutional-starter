@@ -11,6 +11,7 @@
     "astro": "astro",
     "audit": "lhci autorun",
     "audit:slop": "node scripts/audit-slop.mjs",
+    "test:e2e": "playwright-run tests/e2e/contact-form.spec.cjs",
     "hooks:install": "cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
   },
   "dependencies": {
